@@ -1,0 +1,966 @@
+<div class="row ng-section">
+  <div class="col-md-12 custom-header" data-bs-toggle="collapse" data-bs-target="#myCollapsableDiv"
+    aria-expanded="false" aria-controls="myCollapsableDiv">
+    <!-- <i class="fa fa-bars fa-lg" aria-hidden="true"></i> -->
+    <h2>
+      <!-- <span style="align-items: center;"> <mat-icon>menu</mat-icon> -->
+      <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+      Branch
+    </h2>
+  </div>
+</div>
+<!-- {{this.form.value|json}} -->
+
+<div>
+  <div class="row collapse show" id="myCollapsableDiv" style="width: 100%;">
+
+    <div class="mat-card">
+      <form [formGroup]="form">
+
+
+        <div class="row ng-section">
+          <div class="col-md-12 custom-header" data-bs-toggle="collapse" data-bs-target="#myCollapsableDivs"
+            aria-expanded="false" aria-controls="myCollapsableDiv">
+
+            <h2>General Information</h2>
+          </div>
+        </div>
+
+
+        <div class="row collapse show" id="myCollapsableDivs" style="width: 100%;">
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+
+                    <div class="form-group text-center ">
+                      <div class="mb-0 mat-form-label asterisk" matTooltip="Branch Name" matTooltipPosition="above">
+                        Branch
+                        Name<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-form-field class="Customer col-md-12" [ngClass]="{ 'validated': isFieldValid('branchName') }">
+
+                      <input matInput placeholder="Please enter branch name" formControlName="branchName"
+                        maxlength="50">
+
+                      <mat-error *ngIf="form.get('branchName')?.hasError('required') ">Branch name
+                        is required</mat-error>
+                      <mat-error *ngIf="form.get('branchName')?.hasError('pattern')">Branch Name
+                        must be alphanumeric</mat-error>
+                      <!-- <mat-error *ngIf="form.get('branchName')?.hasError('min')">Minimum
+                        length is 1 character</mat-error>
+                      <mat-error *ngIf="form.get('branchName')?.hasError('max')">Maximum
+                        length is 50 characters</mat-error> -->
+                      <mat-icon matSuffix *ngIf="isFieldValid('branchName')">done</mat-icon>
+                      <mat-icon matSuffix *ngIf="!isFieldValid('branchName')" matTooltip="Branch name must be between 1 - 50 characters">info</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label " matTooltip="Branch Code" matTooltipPosition="above">Branch
+                        Code<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-form-field class="Customer col-md-12" [ngClass]="{ 'validated': isFieldValid('branchCode') }">
+                      <!-- <mat-icon class="input-icon">info</mat-icon> -->
+                      <input matInput placeholder="Please enter branch code" formControlName="branchCode"
+                        maxlength="20">
+                      <!-- <mat-error *ngIf="form.get('form.branchCode')?.invalid">Branch Code is required</mat-error> -->
+
+                      <mat-error *ngIf="form.get('branchCode')?.hasError('pattern')">Branch Code
+                        must be alphanumeric</mat-error>
+                      <mat-error *ngIf="form.get('branchCode')?.hasError('required')">Branch Code
+                        is required</mat-error>
+                      <!-- <mat-error *ngIf="form.get('branchCode')?.hasError('min')">Minimum
+                        length is 1 character</mat-error>
+                      <mat-error *ngIf="form.get('branchCode')?.hasError('max')">Maximum
+                        length is 20 characters</mat-error> -->
+                      <mat-icon matSuffix *ngIf="isFieldValid('branchCode')">done</mat-icon>
+                      <mat-icon matSuffix *ngIf="!isFieldValid('branchCode')"  matTooltip="Branch code must be between 1 - 20 characters">info</mat-icon>
+                    </mat-form-field>
+
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label"  matTooltip="Parent Branch" matTooltipPosition="above">Parent
+                        Branch<span></span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <ng-select id="country" formControlName="parentBranchId" [clearable]="true" appendTo="body"
+                      [items]="parentary" bindValue="bankId" bindLabel="bankName"
+                      placeholder="Please select  parentBranch">
+                    </ng-select>
+
+                    <!-- Add any additional content here if needed -->
+                    <mat-error
+                      *ngIf="form.get('parentBranchId')?.hasError('required') && isFieldTouched('parentBranchId')">country
+                      is required</mat-error>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label" matTooltip="Custom ID"  matTooltipPosition="above">Customer
+                        ID<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-form-field class=" Customer col-md-12" [ngClass]="{ 'validated': isFieldValid('customId') }">
+                      <!-- <mat-icon class="input-icon">info</mat-icon> -->
+                      <input matInput placeholder="Please enter cutomer Id" formControlName="customId" maxlength="8">
+
+                      <!-- <mat-error *ngIf="form.get('form.customId')?.invalid">Customer ID is required</mat-error> -->
+                      <mat-error *ngIf="form.get('customId')?.hasError('pattern')">Customer ID
+                        must be alphanumeric</mat-error>
+                      <mat-error *ngIf="form.get('customId')?.hasError('required')">Customer ID
+                        is required</mat-error>
+                      <!-- <mat-error *ngIf="form.get('customId')?.hasError('min')">Minimum
+                        length is 1 character</mat-error>
+                      <mat-error *ngIf="form.get('customId')?.hasError('max')">Maximum
+                        length is 8 characters</mat-error> -->
+                      <mat-icon matSuffix *ngIf="isFieldValid('customId')">done</mat-icon>
+                      <mat-icon matSuffix *ngIf="!isFieldValid('customId')" matTooltip="Custom Id must be between 1 - 8 characters">info</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group text-center ">
+                    <div for="allowedUsers" class="mb-0 mat-form-label">Allowed
+                      USers<span>&nbsp;*</span></div>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <ng-select id="country" formControlName="allowedUsers" [clearable]="true" appendTo="body"
+                  [items]="roleary" bindValue="roleId" bindLabel="roleName" placeholder="Please select ">
+                </ng-select>
+
+                
+                <mat-error *ngIf="form.get('allowedUsers')?.hasError('required') && isFieldTouched('allowedUsers')">Users is required</mat-error>
+                </div>
+              </div>
+
+            </div> -->
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center">
+                      <div  class="mb-0 mat-form-label" matTooltip="description"  matTooltipPosition="above">description<span></span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-form-field class="Customer" class=" Customer col-md-12" matTooltip="Description" matTooltipPosition="above"
+                      [ngClass]="{ 'validated': isFieldValid('description') }">
+                      <!-- <mat-icon class="input-icon">info</mat-icon> -->
+                      <textarea matInput  placeholder="Please enter description" formControlName="description"
+                        maxlength="200"> </textarea>
+
+                      <mat-error *ngIf="form.get('description')?.hasError('pattern')">description
+                        must be alphanumeric</mat-error>
+
+                      <!-- <mat-error *ngIf="form.get('description')?.hasError('min')">description
+                        length is 1 character</mat-error>
+                      <mat-error *ngIf="form.get('description')?.hasError('max')">description
+                        length is 200 characters</mat-error> -->
+                      <mat-icon matSuffix *ngIf="isFieldValid('description')">done</mat-icon>
+                      <mat-icon matSuffix *ngIf="!isFieldValid('description')" matTooltip="Description must be between 1 - 200 characters">info</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label" matTooltip="target"  matTooltipPosition="above">Target in
+                        Cr<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+
+                    <mat-form-field class=" Customer col-md-12" [ngClass]="{ 'validated': isFieldValid('target') }">
+                      <!-- <mat-icon class="input-icon">info</mat-icon> -->
+                      <input matInput placeholder="Please enter targetInCr in cr" formControlName="targetInCr"
+                        maxlength="15">
+
+                      <!-- <mat-error *ngIf="form.get('targetInCr')?.invalid">targetInCr in Cr is required</mat-error>
+               -->
+                      <mat-error *ngIf="form.get('targetInCr')?.hasError('required')">targetInCr
+                        is required</mat-error>
+
+                      <mat-error *ngIf="form.get('targetInCr')?.hasError('pattern')">targetInCr
+                        must be numeric</mat-error>
+
+                      <!-- <mat-error *ngIf="form.get('targetInCr')?.hasError('min')">targetInCr
+                        length is 1 digit</mat-error>
+                        <mat-error *ngIf="form.get('targetInCr')?.hasError('max' )">
+                          length is 5 digit</mat-error>
+                      -->
+
+                      <!-- <mat-error *ngIf="form.get('targetInCr')?.errors?.['maxLength']"
+                                                    style="color: red;">
+                                                    Target should not exceed 11 characters.
+                                                </mat-error> -->
+                      <mat-icon matSuffix *ngIf="isFieldValid('targetInCr')">done</mat-icon>
+                      <mat-icon matSuffix *ngIf="!isFieldValid('targetInCr')" matTooltip="Target must be numeric" >info</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>                    
+
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label"  matTooltip="is Restricted " matTooltipPosition="above">is
+                        Restricted<span></span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-radio-group id="isRestricted" formControlName="isRestricted">
+                      <mat-radio-button style="margin-top: 0.4cm;" [value]="option.rowId"
+                        *ngFor="let option of radioOptionsYesNo" class="multiple-radios">
+                        {{option.title}}&nbsp;&nbsp;
+                      </mat-radio-button>
+                      <!-- <mat-error
+                                            *ngIf="(f.isRestricted.errors && f.isRestricted.touched) && !f.isRestricted.valid">
+                                            <span *ngIf="f.isRestricted.errors?.required">Select restricted value</span>
+                                        </mat-error> -->
+                    </mat-radio-group>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label"  matTooltip="is Excluded " matTooltipPosition="above">is Excluded</div>
+                    </div>
+                  </div>
+                  <div class="col-md-8 ">
+
+                    <mat-radio-group id="isExcluded" formControlName="isExcluded">
+                      <mat-radio-button style="margin-top: 0.4cm  ;" [value]="option.rowId"
+                        *ngFor="let option of radioOptionsYesNo" class="multiple-radios">
+
+                        {{option.title}}&nbsp;&nbsp;
+                      </mat-radio-button>
+
+
+                      <!-- <mat-error
+                        *ngIf="(f.isExcluded.errors? && f.isExcluded.touched) && !f.isExcluded.valid">
+                        <span *ngIf="f.isExcluded.errors?.required">Select excluded value</span>
+                    </mat-error> -->
+                    </mat-radio-group>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label"  matTooltip="From Date " matTooltipPosition="above">From
+                        Date<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+
+                    <!-- <mat-form-field class=" Customer col-md-12">
+                      <input #picker matInput [matDatepicker]="fromDate"
+                        placeholder="Please select from date (MM/DD/YYYY)" formControlName="fromDate">
+                      <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+                      <mat-datepicker #fromDate [min]="minDate"></mat-datepicker>
+                      <mat-error *ngIf="form.get('fromDate')?.hasError('required')">From Date is
+                        required</mat-error>
+
+                    </mat-form-field> -->
+                    <mat-form-field class="col-md-12">
+                      <!-- From Date -->
+                      <input matInput [matDatepicker]="fromDate" placeholder="From Date" formControlName="fromDate">
+                      <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+                      <mat-datepicker #fromDate [min]="minDate"></mat-datepicker>
+                      <mat-error *ngIf="form.get('fromDate')?.invalid">Selected Date is invalid</mat-error>
+
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label" matTooltip="To Date " matTooltipPosition="above">To Date<span></span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <!-- <mat-form-field class=" Customer col-md-12">
+                      <input matInput [matDatepicker]="toDate" [min]="getMinToDate() "
+                        placeholder="Please select to date (MM/DD/YYYY)" formControlName="toDate">
+                      <mat-datepicker-toggle #picker2 matSuffix [for]="toDate"></mat-datepicker-toggle>
+                      <mat-datepicker #toDate></mat-datepicker>
+                     
+                    </mat-form-field> -->
+
+                    <mat-form-field class="col-md-12 mr-8">
+                      <input matInput [matDatepicker]="toDate" placeholder="To Date" formControlName="toDate"
+                        [min]="getMinToDate()">
+                      <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+                      <mat-datepicker #toDate [min]="minDate"></mat-datepicker>
+                      <mat-error *ngIf="form.get('toDate')?.invalid">To Date is required</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label" matTooltip="Anchor Tag" matTooltipPosition="above">Anchor Tag</div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+
+                    <mat-checkbox formControlName="isAnchorTagged" class=" Customer col-md-12"  (change)="onAnchorTagChange($event)">
+                   
+                    </mat-checkbox>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div class="mb-0 mat-form-label" matTooltip="Status" matTooltipPosition="above" >Status<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-slide-toggle formControlName="isActive" class=" Customer col-md-12" [class.green-slide-toggle]="form.get('isActive')?.value">
+                    </mat-slide-toggle>
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label" matTooltip="Sequence"
+                      matTooltipPosition="above">Sequence<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-form-field class=" Customer col-md-12" [ngClass]="{ 'validated': isFieldValid('sequence') }">
+                      <!-- <mat-icon class="input-icon">info</mat-icon> -->
+                      <input matInput placeholder="Please enter sequence" formControlName="sequence">
+
+                      <mat-error *ngIf="form.get('sequence')?.hasError('pattern')">sequence
+                        must be numeric</mat-error>
+                      <mat-error *ngIf="form.get('sequence')?.hasError('required')">sequence
+                        is required</mat-error>
+                      <mat-icon matSuffix *ngIf="isFieldValid('sequence')">done</mat-icon>
+                      <mat-icon matSuffix *ngIf="!isFieldValid('sequence')" matTooltip="Sequence must be numeric">info</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+        <div class="row ng-section">
+          <div class="col-md-12 custom-header" data-bs-toggle="collapse" data-bs-target="#myCollapsableDivss"
+            aria-expanded="false" aria-controls="myCollapsableDiv">
+
+            <h2>Address Information</h2>
+          </div>
+        </div>
+
+        <div class="row collapse show" id="myCollapsableDivss" style="width: 100%;">
+          <div class="container-fluid">
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+
+                    <div class="form-group text-center ">
+                      <div class="mb-0 mat-form-label" matTooltip="Address" matTooltipPosition="above">Address<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-form-field class=" Customer col-md-12" [ngClass]="{ 'validated': isFieldValid('address') }">
+                      <!-- <mat-icon class="input-icon">info</mat-icon> -->
+                      <textarea matInput placeholder="Please enter address" formControlName="address" maxlength="200">
+                        </textarea>
+                      <mat-error *ngIf="form.get('address')?.hasError('required')">address
+                        is required</mat-error>
+                      <mat-error *ngIf="form.get('address')?.hasError('pattern')">address
+                        must be alphabetical</mat-error>
+                      <!-- <mat-error *ngIf="form.get('address')?.hasError('min')">Minimum
+                        length is 1 character</mat-error>
+                      <mat-error *ngIf="form.get('address')?.hasError('max')">Maximum
+                        length is 200 characters</mat-error> -->
+
+                      <mat-icon matSuffix *ngIf="isFieldValid('address')">done</mat-icon>
+                      <mat-icon matSuffix *ngIf="!isFieldValid('address')" matTooltip="Address  must be between 1 - 200 characters">info</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label" matTooltip="Pincode" matTooltipPosition="above">Pincode<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <ng-select id="pinCode" formControlName="pincodeId" [clearable]="true" appendTo="body"
+                      [items]="pincodeary" bindValue="pincodeId" bindLabel="pincode"
+                      placeholder="Please select pincode " (change)="value($event)">
+                    </ng-select>
+
+                    <!-- Add any additional content here if needed -->
+                    <mat-error
+                      *ngIf="form.get('pincodeId')?.hasError('required') && isFieldTouched('pincodeId') ">pincodeId is
+                      required</mat-error>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center " >
+                      <div  class="mb-0 mat-form-label" matTooltip="City" matTooltipPosition="above">City<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <ng-select id="country" formControlName="cityId" [clearable]="true" appendTo="body"
+                      [items]="cityary" bindValue="cityId" bindLabel="cityName" placeholder="Please select city " >
+                    </ng-select>
+
+                    <!-- Add any additional content here if needed -->
+                    <mat-error *ngIf="form.get('cityId')?.hasError('required') && isFieldTouched('cityId') ">city is
+                      required</mat-error>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label" matTooltip="State" matTooltipPosition="above">State<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ng-select id="region" formControlName="stateId" [clearable]="true" appendTo="body"
+                          [items]="stateary" bindValue="stateId" bindLabel="stateName" placeholder="Please select State ">
+                        </ng-select>
+
+                        <!-- Add any additional content here if needed -->
+                        <mat-error *ngIf="form.get('stateId')?.hasError('required') && isFieldTouched('stateId')">State
+                          is required</mat-error>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="col-md-4">
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label" matTooltip="Region" matTooltipPosition="above">Region<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ng-select id="region" formControlName="regionId" [clearable]="true" appendTo="body"
+                          [items]="regionary" bindValue="regionId" bindLabel="regionName"
+                          placeholder="Please select region">
+                        </ng-select>
+
+                        <!-- Add any additional content here if needed -->
+                        <mat-error
+                          *ngIf="form.get('regionId')?.hasError('required')  && isFieldTouched('regionId') ">Region
+                          required</mat-error>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label" matTooltip="Country" matTooltipPosition="above">Country<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ng-select id="country" formControlName="countryId" [clearable]="true" appendTo="body"
+                          [items]="countryary" bindValue="countryId" bindLabel="countryName"
+                          placeholder="Please select country ">
+                        </ng-select>
+
+                        <!-- Add any additional content here if needed -->
+                        <mat-error
+                          *ngIf="form.get('countryId')?.hasError('required')  && isFieldTouched('countryId')">country is
+                          required</mat-error>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row ng-section">
+          <div class="col-md-12 custom-header" data-bs-toggle="collapse" data-bs-target="#myCollapsableDivsss"
+            aria-expanded="false" aria-controls="myCollapsableDiv">
+
+            <h2>Contact Details</h2>
+          </div>
+        </div>
+
+
+        <div class="row collapse show" id="myCollapsableDivsss" style="width: 100%;">
+          <div class="container-fluid">
+            <div class="row">
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+
+                    <div class="form-group text-center ">
+                      <div class="mb-0 mat-form-label" matTooltip="Branch Manager" matTooltipPosition="above">Branch
+                        Manager<span></span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <ng-select id="country" formControlName="branchManagerId" [clearable]="true" appendTo="body"
+                      [items]="branchmanagerary" bindValue="userId" bindLabel="userName" placeholder="Please select branch Manager">
+                    </ng-select>
+
+                    <!-- Add any additional content here if needed -->
+                    <!-- <mat-error *ngIf="form.get('branchManagerId')?.hasError('required')">Designation is required</mat-error> -->
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="col-md-4">
+
+                <div class="row">
+                  <div class="col-md-4">
+
+                    <div class="form-group text-center ">
+                      <div class="mb-0 mat-form-label" matTooltip="Designation" matTooltipPosition="above">Designation<span></span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <ng-select id="country" formControlName="designationId" [clearable]="true" appendTo="body"
+                      [items]="designationary" bindValue="designationId" bindLabel="designationName"
+                      placeholder="Please select Designation" >
+                    </ng-select>
+
+                    <!-- Add any additional content here if needed -->
+                    <!-- <mat-error *ngIf="form.get('designationId')?.hasError('required')  && isFieldTouched('designationId')">Designation is required</mat-error> -->
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div class="mb-0 mat-form-label" matTooltip="Branch Email" matTooltipPosition="above">Branch Email
+                        ID<span></span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-form-field class=" Customer col-md-12"
+                      [ngClass]="{ 'validated': isFieldValid('branchEmailId') }">
+                      <!-- <mat-icon class="input-icon">info</mat-icon> -->
+                      <input matInput placeholder="Please enter branch email id" formControlName="branchEmailId"
+                        maxlength="50">
+                      <mat-error *ngIf="form.get('branchEmailId')?.hasError('required')">branchEmail
+                        is required</mat-error>
+                      <mat-error *ngIf="form.get('branchEmail')?.hasError('pattern')">branchEmail
+                      must be alphanumeric</mat-error>
+                      <mat-error *ngIf="form.get('branchEmailId')?.hasError('min')">Minimum
+                        length is 1 character</mat-error>
+                      <!-- <mat-error *ngIf="form.get('branchEmailId')?.hasError('max')">Maximum
+                        length is 50 characters</mat-error>
+                      <mat-error *ngIf="form.get('branchEmailId')?.hasError('email')">Please write correct
+                        email address</mat-error> -->
+
+                      <mat-icon matSuffix *ngIf="isFieldValid('branchEmailId')">done</mat-icon>
+                      <mat-icon matSuffix *ngIf="!isFieldValid('branchEmailId')"  matTooltip="Email should be in proper format with max length 100 
+                      Eg: example@gmail.com">info</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+            <!-- <div formArrayName="contactDetails">
+            <div class="row" *ngFor="let contact of contactDetails.controls; let i = index" [formGroupName]="i">
+             
+              <div class="row">
+
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group text-center ">
+                        <div for="parentBranch" class="mb-0 mat-form-label">Contact
+                          type<span>&nbsp;*</span></div>
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <mat-form-field class=" Customer col-md-12">
+                        <mat-select id="parentBranch" formControlName="contactType"
+                          placeholder="Please select contact type">
+                          <mat-option *ngFor="let type of contactTypes" [value]="type.value">{{ type.label
+                            }}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="form.get('contactType')?.hasError('required')">contactDetails
+                          is required</mat-error>
+
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+                <div class="col-md-4">
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group text-center ">
+                        <div for="parentBranch" class="mb-0 mat-form-label">Contact
+                          Number<span>&nbsp;*</span></div>
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <mat-form-field class=" Customer col-md-12"
+                        [ngClass]="{ 'validated': isFieldValid('contactNumber') }">
+                       
+                        <input matInput placeholder="Please enter contact number" formControlName="contactNumber">
+                        <mat-error *ngIf="form.get('contactNumber')?.hasError('required')">contactNumber
+                          is required</mat-error>
+                      
+                        <mat-error *ngIf="form.get('contactNumber')?.hasError('min')">Minimum
+                          length is 10 digit</mat-error>
+                       
+                        <mat-icon matSuffix *ngIf="isFieldValid('contactNumber')">done</mat-icon>
+                        <mat-icon matSuffix *ngIf="!isFieldValid('contactNumber')">info</mat-icon>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-2">
+                  <div style="text-align: center; padding-top: 10px ;padding-bottom: 10px">
+                    <mat-icon style="color: green;" matTooltip="Click to add field"
+                      (click)="addContactDetails()">add_circle</mat-icon>
+                  </div>
+                  <div class="col-md-1"></div>
+                </div>
+                <div class="col-md-2">
+                  <div class="col-md-1" style="text-align: center; padding-top: 10px ;padding-bottom: 10px"
+                    *ngIf="i > 0">
+                    <mat-icon class="delete-btn" matTooltip="Click to delete this field" (click)="deleteDetails(i)">
+                      delete_forever</mat-icon>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div> -->
+          </div>
+
+        </div>
+
+        <div class="row ng-section">
+          <div class="col-md-12 custom-header" data-bs-toggle="collapse" data-bs-target="#myCollapsableDivssss"
+            aria-expanded="false" aria-controls="myCollapsableDiv">
+
+            <h2>GST Details</h2>
+          </div>
+        </div>
+
+
+
+        <div class="row collapse show" id="myCollapsableDivssss" style="width: 100%;">
+          <div class="container-fluid">
+            <div class="row">
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+
+                    <div class="form-group text-center ">
+                      <div class="mb-0 mat-form-label" matTooltip="GST Number" matTooltipPosition="above">GST
+                        Number<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-form-field class=" Customer col-md-12" [ngClass]="{ 'validated': isFieldValid('gstNumber') }">
+                      <!-- <mat-icon class="input-icon">info</mat-icon> -->
+                      <input matInput placeholder="Please enter gst number" formControlName="gstNumber" maxlength="15">
+                      <mat-error *ngIf="form.get('gstNumber')?.hasError('required')">gstNumber
+                        is required</mat-error>
+                      <mat-error *ngIf="form.get('gstNumber')?.hasError('pattern')">gstNumber
+                        must be alphanumeric</mat-error>
+                      <!-- <mat-error *ngIf="form.get('gstNumber')?.hasError('min')">Minimum
+                        length is 1 character</mat-error>
+                      <mat-error *ngIf="form.get('gstNumber')?.hasError('max')">Maximum
+                        length is 15 characters</mat-error> -->
+                      <mat-icon matSuffix *ngIf="isFieldValid('gstNumber')">done</mat-icon>
+                      <mat-icon matSuffix *ngIf="!isFieldValid('gstNumber')" matTooltip="Gst Number should be of 15 characters">info</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="col-md-4">
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label" matTooltip="Registration Date" matTooltipPosition="above">Registration
+                        Date<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-form-field class=" Customer col-md-12">
+                      <input matInput [matDatepicker]="registrationDate" placeholder="Please select registration date"
+                        formControlName="gstRegistrationDate">
+                      <mat-datepicker-toggle matSuffix [for]="registrationDate"></mat-datepicker-toggle>
+                      <mat-datepicker #registrationDate></mat-datepicker>
+                      <mat-error *ngIf="form.get('gstRegistrationDate')?.hasError('required')">registrationDate
+                        is required</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group text-center ">
+                      <div  class="mb-0 mat-form-label"  matTooltip="Registration Address" matTooltipPosition="above">Registration
+                        Address<span></span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <mat-form-field class=" Customer col-md-12"
+                      [ngClass]="{ 'validated': isFieldValid('gstRegistrationAddress') }">
+                      <!-- <mat-icon class="input-icon">info</mat-icon> -->
+                      <textarea matInput placeholder="Please enter registration address"
+                        formControlName="gstRegistrationAddress" maxlength="15"></textarea>
+                      <!-- <mat-error *ngIf="form.get('gstRegistrationAddress')?.hasError('required')">registrationAddress
+                      is required</mat-error> -->
+                      <mat-error *ngIf="form.get('gstRegistrationAddress')?.hasError('pattern')">registrationAddress
+                        must be alphabetical</mat-error>
+                      <!-- <mat-error *ngIf="form.get('gstRegistrationAddress')?.hasError('min')">Minimum
+                        length is 1 character</mat-error>
+                      <mat-error *ngIf="form.get('gstRegistrationAddress')?.hasError('max')">Maximum
+                        length is 15 characters</mat-error> -->
+                      <mat-icon matSuffix *ngIf="isFieldValid('gstRegistrationAddress')">done</mat-icon>
+                      <mat-icon matSuffix *ngIf="!isFieldValid('gstRegistrationAddress')"  matTooltip="Registration address should be upto 200 characters">info</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="row">
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+
+                    <div class="form-group text-center ">
+                      <div class="mb-0 mat-form-label" matTooltip="GST Registration" matTooltipPosition="above">GST Registration
+                        Pincode<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ng-select id="region" formControlName="gstRegistrationPincodeId" [clearable]="true"
+                          appendTo="body" [items]="gstpincodeary" bindValue="pincodeId" bindLabel="gstRegistrationPincode"
+                          placeholder="Please select gst Registration pincode " (change)="gstPincodeValue($event)">
+                        </ng-select>
+
+                        <!-- Add any additional content here if needed -->
+                        <mat-error
+                          *ngIf="form.get('gstRegistrationPincodeId')?.hasError('required')  && isFieldTouched('gstRegistrationPincodeId')">Region
+                          required</mat-error>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-4">
+
+                    <div class="form-group text-center ">
+                      <div class="mb-0 mat-form-label" matTooltip="GST Registration State" matTooltipPosition="above">GST Registration
+                        State<span>&nbsp;*</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ng-select id="state" formControlName="gstRegistrationStateId" [clearable]="true"
+                          appendTo="body" [items]="stateary" bindValue="stateId" bindLabel="stateName"
+                          placeholder="Please select gst registration
+                          State ">
+                        </ng-select>
+
+                        <!-- Add any additional content here if needed -->
+                        <mat-error *ngIf="form.get('gstRegistrationStateId')?.hasError('required')">Region
+                          required</mat-error>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+            </div>
+
+
+
+
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+
+  </div>
+
+  <div class="mat-card-actions">
+    <div class="row justify-content-end mt-4">
+      <div class="col-md-2 d-flex justify-content-end">
+        <button mat-button class="btn1 col-md-12" mat-button (click)="onSave(['save'])">Save</button>
+      </div>
+      <div class="col-md-2 d-flex justify-content-end">
+        <button mat-button class="btn1 col-md-12" mat-button (click)="onSave(['saveAndContinued'])">Save
+          & Continue</button>
+      </div>
+      <div class="col-md-2 d-flex justify-content-end">
+        <button mat-button class="btn2 col-md-12" mat-button (click)="onBack()">
+          Back</button>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

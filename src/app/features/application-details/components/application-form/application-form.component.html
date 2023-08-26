@@ -1,0 +1,252 @@
+<p>application-form works!</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="BranchName" class="mb-0">Branch Name<span>&nbsp;*</span></label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <input matInput id="branchName" formControlName="branchName" placeholder="Branch Name">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="customerID" class="mb-0">Customer ID<span>&nbsp;*</span></label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <input matInput id="customerID" formControlName="customerID" placeholder="Customer ID">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="target" class="mb-0">Target in Cr<span>&nbsp;*</span></label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <input matInput id="target" formControlName="target" placeholder="Enter a taget in Cr">
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="pincode" class="mb-0">Pincode<span>&nbsp;*</span></label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-select id="pincode" formControlName="pincode" placeholder="Pincode">
+              <mat-option value="pincode1">Pincode 1</mat-option>
+              <mat-option value="pincode2">Pincode 2</mat-option>
+              <mat-option value="pincode3">Pincode 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="FromDate" class="mb-0">From Date<span>&nbsp;*</span></label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <input matInput [matDatepicker]="fromDate" placeholder="From Date*" formControlName="fromDate">
+            <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+            <mat-datepicker #fromDate></mat-datepicker>
+            <!-- <mat-error *ngIf="form.get('generalInfo.fromDate')?.invalid">From Date is required</mat-error> -->
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="stdCode" class="mb-0">STD Code</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <input matInput id="stdCode" formControlName="stdCode" placeholder="STD Code" type="number">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="mobileNumber" class="mb-0">Mobile Number</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <input matInput id="mobileNumber" formControlName="mobileNumber" placeholder="Mobile Number" type="number">
+          </mat-form-field>
+        </div>
+      </div>
+    
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="ifscCode" class="mb-0">Branch IFSC Code<span>&nbsp;*</span></label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-select id="ifscCode" formControlName="ifscCode" placeholder="Branch IFSC Code">
+              <mat-option value="ifsc1">IFSC Code 1</mat-option>
+              <mat-option value="ifsc2">IFSC Code 2</mat-option>
+              <mat-option value="ifsc3">IFSC Code 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="branchCode" class="mb-0">Branch Code<span>&nbsp;*</span></label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <input matInput id="branchCode" formControlName="branchCode" placeholder="Branch Code">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="city" class="mb-0">City</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-select id="city" formControlName="city" placeholder="City">
+              <mat-option value="city1">City 1</mat-option>
+              <mat-option value="city2">City 2</mat-option>
+              <mat-option value="city3">City 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="address" class="mb-0">Address</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <textarea matInput id="address" formControlName="address" placeholder="Address"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="faxNumber" class="mb-0">Fax Number</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <input matInput id="faxNumber" formControlName="faxNumber" placeholder="Fax Number" type="number">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="emailId" class="mb-0">Email ID</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <input matInput id="emailId" formControlName="emailId" placeholder="Email ID" type="email">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="bankName" class="mb-0">Bank Name<span>&nbsp;*</span></label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-select id="bankName" formControlName="bankName" placeholder="Bank Name">
+              <mat-option value="bank1">Bank 1</mat-option>
+              <mat-option value="bank2">Bank 2</mat-option>
+              <mat-option value="bank3">Bank 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="micr" class="mb-0">MICR<span>&nbsp;*</span></label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <input matInput id="micr" formControlName="micr" placeholder="MICR">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="state" class="mb-0">State<span>&nbsp;*</span></label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-select id="state" formControlName="state" placeholder="State">
+              <mat-option value="state1">State 1</mat-option>
+              <mat-option value="state2">State 2</mat-option>
+              <mat-option value="state3">State 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="phoneNumber" class="mb-0">Phone Number</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <input matInput id="phoneNumber" formControlName="phoneNumber" placeholder="Phone Number" type="number">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group text-center pt-2">
+            <label for="relationshipPerson" class="mb-0">Relationship Person</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <input matInput id="relationshipPerson" formControlName="relationshipPerson" placeholder="Relationship Person">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

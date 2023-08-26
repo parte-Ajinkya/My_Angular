@@ -1,0 +1,52 @@
+.asterisk {
+    color: red; /* You can customize the color */
+    font-size: 14px; /* You can customize the font size */
+    margin-left: 2px; /* You can adjust the margin */
+}
+
+span{
+    color: red;
+  }
+
+  .mat-card {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .mat-button{
+    margin-right: 20px;
+    margin-top: 5px;
+    background-color: green;
+    color: white;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .mat-form-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+    font-weight: 500;
+    text-align: right;}
+  
+    .form-group
+    {
+        text-align: left;
+    }
+
+
+    h2{
+   
+        font-size: 20px;
+        text-align: left;
+        color: white;
+       
+        background-size: 450% 100%;
+        animation: gradientAnimation 8s ease infinite;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        background-color:#00aaba;
+        
+      }

@@ -1,0 +1,150 @@
+
+<form [formGroup]="masterForm">
+    <div class="outer-container">
+    <div class="container-fluid mt-4">
+        <div class="row">                                 
+            <div class="col">
+                <div class="row">
+                    <div class="bg-secondary text-white p-2  w-100">Business</div>
+                </div>
+                <div class="row bg-light-blue border text-center">
+                    <div class="col-md-1 border"></div>
+                    <div class="col-md-1 border">CaseID</div>
+                    <div class="col-md-1 border">Business name</div>
+                    <div class="col-md-1 border">Country</div>
+                    <div class="col-md-1 border">Date of Last run</div>
+                    <div class="col-md-1 border">Result</div>
+                    <div class="col-md-1 border">Outstanding Action</div>
+                    <div class="col-md-1 border">Case Update</div>
+                    <div class="col-md-2 border"></div>
+                    <div class="col-md-1 border">Report Uploaded</div>
+                    <div class="col-md-1 border">File Upload Status</div>
+                </div>
+                <div formArrayName="businessData">
+                    <div *ngFor="let item of masterForm.get('businessData')?.controls; let i = index"
+                        [formGroupName]="i" class="row border text-center">
+                        <div class="col border">
+                            <input class="form-check-input" type="checkbox" formControlName="isChecked">
+                        </div>
+                        <div class="col-md-1 border">{{ item.controls.CaseID.value }}</div>
+                        <div class="col-md-1 border">{{ item.controls.BusinessName.value }}</div>
+                        <div class="col-md-1 border">{{ item.controls.Country.value }}</div>
+                        <div class="col-md-1 border">{{ item.controls.DateOfLastRun.value }}</div>
+                        <div class="col-md-1 border">{{ item.controls.Result.value }}</div>
+                        <div class="col-md-1 border">{{ item.controls.OutstandingAction.value }}</div>
+                        <div class="col-md-1 border">{{ item.controls.CaseUpdate.value }}</div>
+                        <div class="col-md-2 border">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div>
+                                    <button class="btn btn-success btn-sm" (click)="setScreenFlag(item)">Screen</button>
+                                </div>
+                                <div>
+                                    <span *ngIf="item.controls.showScreenMessage.value" class="text-success p-3">Screen Clicked</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <input type="file" (change)="onFileSelected($event, item)" #fileInput
+                                    style="display: none;">
+                                <button class="btn btn-success btn-sm" (click)="fileInput.click()">Upload</button>
+                                <div class="d-flex align-items-center">
+                                    <div class="p-2" *ngIf="item.controls.selectedFileName.value">{{
+                                        item.controls.selectedFileName.value }}
+                                        <mat-icon (click)="clearFile(item)" class="clear-icon">clear</mat-icon>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1 border">
+                            <div class="d-flex align-items-center">
+                                <ng-select [items]="reportOptions" bindLabel="label" placeholder="Select..."
+                                class="w-100" formControlName="ReportUploaded">
+                            </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-md-1 border">{{ item.controls.FileUploadStatus.value }}</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="bg-secondary text-white p-2  w-100">Individual</div>
+                </div>
+                <div class="row bg-light-blue border text-center">
+                    <div class="col-md-1 border"></div>
+                    <div class="col-md-1 border">CaseID</div>
+                    <div class="col-md-1 border">Business name</div>
+                    <div class="col-md-1 border">Country</div>
+                    <div class="col-md-1 border">Date of Last run</div>
+                    <div class="col-md-1 border">Result</div>
+                    <div class="col-md-1 border">Outstanding Action</div>
+                    <div class="col-md-1 border">Case Update</div>
+                    <div class="col-md-2 border"></div>
+                    <div class="col-md-1 border">Report Uploaded</div>
+                    <div class="col-md-1 border">File Upload Status</div>
+                </div>
+                <div formArrayName="individualData">
+                    <div *ngFor="let item of masterForm.get('individualData')?.controls; let i = index"
+                        [formGroupName]="i" class="row border text-center">
+                        <div class="col border">
+                            <input class="form-check-input" type="checkbox" formControlName="isChecked">
+                        </div>
+                        <div class="col-md-1 border">{{ item.controls.CaseID.value }}</div>
+                        <div class="col-md-1 border">{{ item.controls.IndividualName.value }}</div>
+                        <div class="col-md-1 border">{{ item.controls.Country.value }}</div>
+                        <div class="col-md-1 border">{{ item.controls.DateOfLastRun.value }}</div>
+                        <div class="col-md-1 border">{{ item.controls.Result.value }}</div>
+                        <div class="col-md-1 border">{{ item.controls.OutstandingAction.value }}</div>
+                        <div class="col-md-1 border">{{ item.controls.CaseUpdate.value }}</div>
+                        <div class="col-md-2 border">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div>
+                                    <button class="btn btn-success btn-sm" (click)="setScreenFlag(item)">Screen</button>
+                                </div>
+                                <div>
+                                    <span *ngIf="item.controls.showScreenMessage.value" class="text-success p-3">Screen Clicked</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <input type="file" (change)="onFileSelected($event, item)" #fileInput
+                                    style="display: none;">
+                                <button class="btn btn-success btn-sm" (click)="fileInput.click()">Upload</button>
+                                <div class="d-flex align-items-center">
+                                    <div class="p-2" *ngIf="item.controls.selectedFileName.value">{{
+                                        item.controls.selectedFileName.value }}
+                                        <mat-icon (click)="clearFile(item)" class="clear-icon">clear</mat-icon>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1 border">
+                            <div class="d-flex align-items-center">
+                                <ng-select [items]="reportOptions" bindLabel="label" placeholder="Select..."
+                                class="w-100" formControlName="ReportUploaded">
+                            </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-md-1 border">{{ item.controls.FileUploadStatus.value }}</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    <div class="container mt-5">
+        <div class="row justify-content-end">
+            <div class="col-auto  ">
+                <button class="btn btn-success" (click)="submitData()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,36 @@
+::ng-deep .dialog {
+    width: 300px;
+  }
+  
+  ::ng-deep .dialog h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 16px 0;
+  }
+  
+  ::ng-deep .dialog button {
+    margin: 8px;
+  }
+  .dialog{
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 250px;
+    height: 200px;
+    border-radius: 40px;
+  }
+  .btns{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn1{
+    background-color: green; 
+    color: white;
+  }
+  
+  .btn2{
+    background-color: rgba(0, 0, 0, 0.864);
+    color: white;
+  }

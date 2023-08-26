@@ -1,0 +1,132 @@
+<div class="row ng-section">
+    <div class="col-md-12 custom-header" data-bs-toggle="collapse" data-bs-target="#myCollapsableDiv"
+        aria-expanded="false" aria-controls="myCollapsableDiv">
+        <!-- <i class="fa fa-bars fa-lg" aria-hidden="true"></i> -->
+        <h2>
+            <!-- <span style="align-items: center;"> <mat-icon>menu</mat-icon> -->
+            <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+            LIP Vendor
+        </h2>
+    </div>
+</div>
+
+<div class="row collapse show" id="myCollapsableDiv" style="width: 100%;">
+    <div class="mat-card">
+        <form [formGroup]="form">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <div class="form-group mt-1">
+                            <div class="text-left" matTooltip="vendorName" matTooltipPosition="above">
+                                <label class=" mat-form-label">Vendor Name<span>&nbsp;*</span></label>
+                            </div>
+                            <ng-select [items]="dropdownData" formControlName="vendorName" bindLabel="name"
+                                placeholder="Select an option"></ng-select>
+                            <mat-error
+                                *ngIf="form.get('vendorName')?.hasError('required') && isFieldTouched('vendorName')">Vendor
+                                Name is required</mat-error>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group mt-4">
+                            <div class="text-left" matTooltip="date of Report " matTooltipPosition="above">
+                                <label class="mat-form-label">Date of Report</label>
+                            </div>
+                            <mat-form-field>
+                                <input matInput [matDatepicker]="dateOfReport" placeholder="Select date of Report"
+                                    formControlName="dateOfReport" [min]="minDate">
+                                <mat-datepicker-toggle matSuffix [for]="dateOfReport"></mat-datepicker-toggle>
+                                <mat-datepicker #dateOfReport></mat-datepicker>
+                                <mat-error *ngIf="form.get('dateOfReport')?.invalid">Selected Date is
+                                    invalid</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group mt-4">
+                            <div class="text-left" matTooltip="remark " matTooltipPosition="above">
+                                <label class=" mat-form-label">Remark</label>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="div-form-field col-md-12  "
+                                    [ngClass]="{ 'validated': isFieldValid('remark') }">
+                                    <input matInput placeholder="Please enter remark" formControlName="remark"
+                                        maxlength="50">
+                                    <mat-error *ngIf="form.get('remark')?.hasError('required')">Remark is
+                                        required</mat-error>
+                                    <mat-error *ngIf="form.get('remark')?.hasError('pattern')">Remark must be
+                                        alphanumeric</mat-error>
+                                    <mat-icon matSuffix *ngIf="isFieldValid('remark')">done</mat-icon>
+                                    <mat-icon matSuffix *ngIf="!isFieldValid('remark')"
+                                        matTooltip="Remark must be between 1 - 50 characters">info</mat-icon>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <div class="text-left" matTooltip="LIP Report" matTooltipPosition="above">
+                                <label class=" mat-form-label">LIP Report</label>
+                            </div>
+                        </div>
+                        <div class="mt-0 text-top" style="margin-top: -10px;">
+
+                            <input type="file" (change)="onFileSelected($event)" style="display: none;"
+                                formControlName="lipReport" #fileInput />
+                            <button mat-button class="btn1 " mat-button (click)="fileInput.click()">Upload</button>
+                            <div *ngIf="selectedFileName">{{ selectedFileName }}
+
+                                <mat-icon (click)="clearFile()" class="clear-icon">clear</mat-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <div class="text-right" matTooltip="Action" matTooltipPosition="above">
+                                <label class=" mat-form-label">Action</label>
+                            </div>
+                        </div>
+                        <div style="text-align: right; padding-top: 10px ;padding-bottom: 10px">
+                            <mat-icon style="color: green;" matTooltip="Click to add field"
+                                (click)="onAddClick()">add_circle</mat-icon>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <angular-slickgrid #angularSlickgrid gridId="myGrid" [columnDefinitions]="columnDefinitions"
+                    [gridOptions]="gridOptions" [dataset]="data"  >
+                </angular-slickgrid>
+            </div>
+        </div>
+
+        <div class="mat-card-actions">
+            <div class="row justify-content-end mt-4">
+                <div class="col-md-2 d-flex justify-content-end">
+                    <button mat-button class="btn2 col-md-12" mat-button matTooltip="save the data">Save</button>
+                </div>
+                <div class="col-md-2 d-flex justify-content-end">
+                    <button mat-button class="btn1 col-md-12" mat-button matTooltip="Mail initiate">Mail
+                        initiate</button>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
+   
+
+
+
+
+
+
+</div>

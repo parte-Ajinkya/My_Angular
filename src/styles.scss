@@ -1,0 +1,32 @@
+@import '@slickgrid-universal/common/dist/styles/sass/slickgrid-theme-bootstrap.scss';    
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import 'ngx-toastr/toastr';
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+mat-expansion-panel-header:hover {
+    background-color: currentColor
+}
+
+.panel-header{
+    background-color: rgb(59, 86, 207);
+    background: rgb(59, 86, 207) !important;
+  
+}
+.panel-header-jr{
+    
+    background-color: rgb(154, 157, 168);
+    background: rgb(154, 157, 168) !important;}
+
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+        border-color: #307a37;
+      } 
+
+       .mat-radio-button.mat-accent .mat-radio-inner-circle {
+        background-color: #307a37; 
+      }
+
+      
+      .green-slide-toggle .mat-slide-toggle-bar, .green-slide-toggle .mat-slide-toggle-thumb {
+        background-color: green !important;
+      }
+     

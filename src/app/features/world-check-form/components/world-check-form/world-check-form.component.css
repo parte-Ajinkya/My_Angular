@@ -1,0 +1,29 @@
+/* Light blue background for the table header */
+.bg-light-blue {
+    background-color: #cce5ff;
+  }
+
+  
+  /* Light green color for buttons */
+  .btn-success {
+    background-color: #74db74;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    color: black;
+  }
+  
+  .border {
+    border: 1px solid #000;
+  }
+
+  .col border {
+    flex-grow: 1;
+}
+
+
+.outer-container {
+    
+    margin: 15px;
+   
+     /* This will make sure the content is centered vertically on the screen */
+}

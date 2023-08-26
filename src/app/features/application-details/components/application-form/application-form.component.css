@@ -1,0 +1,179 @@
+mat-card {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  mat-card-header {
+    background-color: #2196f3;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  mat-card-content {
+    padding-bottom: 20px;
+  }
+  
+  mat-card-actions {
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .mat-button {
+    /* background-color: #4caf50; */
+    background-color: primary;
+    color: white;
+    margin-right: 10px;
+  }
+  
+  .mat-slide-toggle {
+    margin-bottom: 10px;
+  }
+  
+  /* .row-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+  }
+  
+  .row-container > * {
+    flex: 1 1 calc(33.33% - 10px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: auto;
+  }
+  
+  .row-container > *:nth-child(3n) {
+    margin-right: 0;
+  }
+  
+  .row-container > *:nth-last-child(-n + 3) {
+    margin-bottom: 0;
+  }
+   */
+ 
+   
+  .input-icon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  h2{
+   
+    font-size: 20px;
+    text-align: left;
+    color: white;
+    text-align: center;
+    align-items: center;
+    /* background: linear-gradient(to right, #00bcd4, #4caf50, #ffeb3b, #e91e63);
+    background-size: 450% 100%;
+     animation: gradientAnimation 8s ease infinite; 
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);  */
+     
+  }
+  
+  
+  
+  /* @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  } */
+  
+  .buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .buttons button {
+    margin-right: 10px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .buttons button:hover {
+    background-color: #45a049;
+  }
+  
+  .back-button {
+    color: #fff;
+    background-color: #2196F3;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #1976D2;
+  }
+  
+  mat-slide-toggle {
+    margin: 8px 0;
+    display: block;
+  }
+  .disable_ripple:hover{
+    background: linear-gradient(to right, #00bcd4, #4caf50, #ffeb3b, #e91e63) !important;
+    }
+    mat-expansion-panel-header:hover {
+      background-color: linear-gradient(to right, #00bcd4, #4caf50, #ffeb3b, #e91e63)! important
+  }
+  
+  mat-expansion-panel-header{
+    /* font-size: 20px; */
+    text-align: left;
+    color: white;
+    background: linear-gradient(to right, #00bcd4, #4caf50, #ffeb3b, #e91e63);
+    background-size: 450% 100%;
+     animation: gradientAnimation 8s ease infinite; 
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .mat-expansion-panel-header:not(.mat-expanded) {
+    /* background-color: #e0e0e0; */
+    font-weight: bold;
+  }
+  
+  /* Set padding for the expansion panel content */
+  .mat-expansion-panel-content {
+    padding: 0 10px;
+  }
+  
+  .mat-expansion-panel-body.mat-expanded {
+    max-height: 50px; /* Adjust this value to your desired height */
+    overflow-y: auto;
+  }
+  
+  
+  .mat-expansion-panel-header:hover {
+    color: #ff5722; /* Change this to your desired text color on hover */
+  }
+  
+  /* .panel-header{
+    background-color: rgb(59, 86, 207);
+    background: rgb(59, 86, 207) !important;
+  
+  }
+  .panel-header-jr{
+    
+    background-color: rgb(154, 157, 168);
+    background: rgb(154, 157, 168) !important;} */
+  
+    .example-spacer {
+      flex: 1 1 auto;
+    }

@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "age": 30,
+      "gender": "Male",
+      "country": "United States"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "age": 25,
+      "gender": "Female",
+      "country": "Canada"
+    },
+    {
+      "id": 3,
+      "name": "Mike Johnson",
+      "email": "mike.johnson@example.com",
+      "age": 28,
+      "gender": "Male",
+      "country": "United Kingdom"
+    },
+    {
+      "id": 4,
+      "name": "Emily Brown",
+      "email": "emily.brown@example.com",
+      "age": 22,
+      "gender": "Female",
+      "country": "Australia"
+    },
+    {
+      "id": 5,
+      "name": "Alex Wilson",
+      "email": "alex.wilson@example.com",
+      "age": 35,
+      "gender": "Male",
+      "country": "Germany"
+    }
+  ]
+  

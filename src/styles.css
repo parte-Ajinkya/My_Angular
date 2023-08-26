@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+
+mat-expansion-panel-header:hover {
+    background-color: linear-gradient(to right, #00bcd4, #4caf50, #ffeb3b, #e91e63)! important
+}
+
+
+.panel-header{
+    background-color: rgb(59, 86, 207);
+    background: rgb(59, 86, 207) !important;
+  
+}
+.panel-header-jr{
+    
+    background-color: rgb(154, 157, 168);
+    background: rgb(154, 157, 168) !important;}
+
+    /* .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+        border-color: #40ff54;
+    } */
+

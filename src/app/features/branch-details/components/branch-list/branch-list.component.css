@@ -1,0 +1,131 @@
+h2{font-size: 20px;
+  text-align: left;
+  color: white;
+  text-align: left;
+  align-items: center;
+  background: linear-gradient(to right, #00bcd4, #4caf50, #ffeb3b, #e91e63);
+  background-size: 450% 100%;
+   animation: gradientAnimation 8s ease infinite; 
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+
+
+  mat-expansion-panel-header{
+    /* font-size: 20px; */
+    text-align: left;
+    color: white;
+    background: linear-gradient(to right, #00bcd4, #4caf50, #ffeb3b, #e91e63);
+    background-size: 450% 100%;
+     animation: gradientAnimation 8s ease infinite; 
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .mat-expansion-panel-header:not(.mat-expanded) {
+    /* background-color: #e0e0e0; */
+    font-weight: bold;
+  }
+  
+  /* Set padding for the expansion panel content */
+  .mat-expansion-panel-content {
+    padding: 0 10px;
+  }
+  
+  .mat-expansion-panel-body.mat-expanded {
+    max-height: 50px; /* Adjust this value to your desired height */
+    overflow-y: auto;
+  }
+
+  mat-card {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  
+  .mat-expansion-panel-header:hover {
+    color: #ff5722; /* Change this to your desired text color on hover */
+  }
+  
+  
+  button{
+    margin-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 230px;
+    background-color: #4caf50;
+    color: white;
+  }
+
+  .back{
+    /* background-color: lightblue; */
+    bottom: 5px black;
+    width: 100%;
+  }
+
+ 
+ 
+  a {
+    /* Basic link styles */
+    text-decoration: none;
+    color: #007bff; /* Blue color, you can change it to your preferred color */
+    cursor: pointer;
+    transition: color 0.2s; /* Optional: Smooth color transition on hover */
+  
+    /* Add any other link styles as needed */
+  }
+
+  a:hover {
+    /* Styles when hovering over the link */
+    color: #0056b3; /* Darker shade of blue on hover, you can adjust it */
+    text-decoration: underline;
+    font-weight: bold;
+
+  }
+
+  a:active {
+    color: #003a80; /* Darker shade of blue when the link is clicked, you can adjust it */
+  }
+
+
+  
+
+  .import-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .import-container .file-info {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .import-container .file-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; /* Adjust this value to limit the width of the file name */
+  }
+  
+  .upload-btn {
+    margin-left: 5px;
+  }
+  
+
+  .clear-icon {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: black;
+  }
+
+  ::ng-deep .faded-icon {
+    opacity: 0.5; /* Set the desired opacity for faded icons */
+    cursor: not-allowed; /* Set the cursor to indicate that the icons are not clickable */
+  }
+ 
